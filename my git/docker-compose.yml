@@ -1,0 +1,14 @@
+version: '3'
+services:
+  flask:
+    build: ./flaskex-master
+    container_name: flaskex-master
+    environment:
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=True                   
+    restart: on-failure
+    volumes:
+      - ./flaskex-master:/flaskex-master
+    ports:
+      - "5000:5000"
+    command: python app.py
